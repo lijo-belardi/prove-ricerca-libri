@@ -2,7 +2,7 @@ import axios from "axios";
 import "@babel/runtime/regenerator";
 import { async } from "@babel/runtime/regenerator";
 import { get, isArray } from "lodash";
-import { getBookElements } from "./getBookElements";
+import { displayBooks } from "./displayBook";
 
 export const getBook = async (searchItem) => {
   try {
@@ -10,7 +10,7 @@ export const getBook = async (searchItem) => {
     const response = await axios.get(url)
     console.log(`getBook - Response Status: ${response.status}`);
     let books = response.data.works
-    getBookElements(books)
+    displayBooks(books)
     
   } catch (error) {
     console.log('getBook Error');

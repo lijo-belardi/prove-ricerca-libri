@@ -1,6 +1,6 @@
 import '../style/main.scss'; // connect scss to template.html
 import { getBook } from './getBookList'
-import { check } from './getBookElements';
+import { check } from './displayBook';
 import { async } from '@babel/runtime/regenerator';
 
 const form = document.getElementById('form')

@@ -3,11 +3,11 @@ import "@babel/runtime/regenerator";
 import { async } from "@babel/runtime/regenerator";
 import { get, isArray } from "lodash";
 import { getBook } from "./getBookList";
-import { displayBookTitle } from "./displayBooks";
+
 
 const bookList = document.getElementById('book-list')
 
-export const getBookElements = async (books) => {
+export const displayBooks = async (books) => {
   let html = ''
   try {
     books.map((book) => {
@@ -26,20 +26,19 @@ export const getBookElements = async (books) => {
           ${authors[3].name} and others`;
         }
       }
-      
+
       html += `
-   
         <div class="book-container" data-id = "${key}">
             <div class="info-book">
             <h2>${title}</h2>
             <p>Authors: ${authors}</p>
             </div>
-        </div>
-    `;
+        </div>`;
+
       bookList.innerHTML = html
     })
   } catch (error) {
-    console.log('geBookElements function Error');
+    console.log('displayBooks function Error');
     console.log(error.name);
     console.log(error.message);
   }
