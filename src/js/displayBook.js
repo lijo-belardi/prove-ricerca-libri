@@ -36,9 +36,26 @@ export const displayBooks = async (books) => {
         </div>`;
 
       bookList.innerHTML = html
-    })
+
+      keyFunction(key)
+    }) 
   } catch (error) {
     console.log('displayBooks function Error');
+    console.log(error.name);
+    console.log(error.message);
+  }
+}
+
+export const keyFunction = async (key) => {
+  try {
+    let arrayKey = [key]
+    arrayKey.forEach((singleWork) => {
+      const url = `https://openlibrary.org${singleWork}.json`
+      const workResponse = await axios.get(url)
+      //workResponse.then((result) => { result.data })
+    })
+  } catch (error) {
+    console.log('keyFunction function Error');
     console.log(error.name);
     console.log(error.message);
   }
