@@ -8,9 +8,8 @@ const subject = document.getElementById('search-input')
 const errorElement = document.getElementById('error-message')
 
 
-form.addEventListener('submit', (e) => {
+/* form.addEventListener('submit', (e) => {
     try {
-        console.log(e.target);
         let messages = []
         if (subject.value === '' || subject.value == null) {
             messages.push('Subject is required!')
@@ -22,7 +21,9 @@ form.addEventListener('submit', (e) => {
         const input = e.target.querySelector('#search-input')
         const searchItem = input.value.trim()
         getBook(searchItem)
+
     } catch (error) {
+        console.log('Event Listener Error');
         console.log(error);
     }
-})
+}) */
