@@ -1,0 +1,44 @@
+$font-size: 1rem;
+$text-color: white;
+
+html {
+  font-size: $font-size;
+  color: $text-color;
+}
+
+body {
+    background-color: rgba(128, 128, 128, 0.695);
+}
+
+h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  outline: 1px solid red;
+  
+  input {
+    margin-top: 10px;
+    width: 15rem;
+    height: 3rem;
+  }
+  .search-btn {
+    margin-top: 2rem;
+    width: 5rem;
+    height: 3rem;
+  }
+}
+
+#book-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: green;
+  margin: 10px 50px;
+}
