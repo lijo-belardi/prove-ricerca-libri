@@ -40,7 +40,7 @@ export const displayBooks = async (books) => {
       bookList.innerHTML = html
       keyFunction(key)
     })
-    throw blblbl
+
   } catch (error) {
     log('ERROR: displayBooks function')
     logErrors(error)
@@ -57,8 +57,7 @@ export const keyFunction = async (key) => {
         .then((result) => {
           let bookDescription = result.data.description
           let arrayDescription = [bookDescription]
-          //console.log(typeof(arrayDescription));
-          //log(arrayDescription)
+          log(arrayDescription)
         })
 
     })
