@@ -1,11 +1,20 @@
 import '../style/main.scss'; // connect scss to template.html
-import { getBook } from './getBookList'
+import { getBooksByGenres } from './getBookList'
 import { check } from './displayBook';
 import { async } from '@babel/runtime/regenerator';
+import { log, logErrors } from './utility';
 
 const form = document.getElementById('form')
 const subject = document.getElementById('search-input')
 const errorElement = document.getElementById('error-message')
+
+try {
+    getBooksByGenres('fantasy')
+} catch (error) {
+    log('ERROR: generic try-catch')
+    logErrors(error)
+}
+
 
 
 /* form.addEventListener('submit', (e) => {
@@ -20,10 +29,11 @@ const errorElement = document.getElementById('error-message')
         }
         const input = e.target.querySelector('#search-input')
         const searchItem = input.value.trim()
-        getBook(searchItem)
-
+        getBooksByGender(searchItem)
     } catch (error) {
-        console.log('Event Listener Error');
-        console.log(error);
+        log('ERROR: event Listener')
+        logErrors(error)
     }
 }) */
+
+

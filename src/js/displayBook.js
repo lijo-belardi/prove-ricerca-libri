@@ -5,7 +5,37 @@ import { get, isArray, result } from "lodash";
 import { getBook } from "./getBookList";
 import { log, logErrors } from "./utility";
 
-const bookList = document.getElementById('book-list')
+export const getbookElements = async (books) => {
+  try {
+    const singleBook = books.map((book) => {
+      let title = get(book, "title", "Title Unknown")
+      let key = get(book, 'key', 'Key Unknown')
+      let authors = get(book, 'authors', 'Authors Unknown')
+      return { title: title, key: key, authors: authors }
+    })
+    descriptionApiRequest(singleBook)
+  } catch (error) {
+    log('ERROR: bookElements function')
+    logErrors(error)
+  }
+}
+
+const descriptionApiRequest = async (singleBook) => {
+  try {
+    const getDescription = singleBook.forEach(async (element) => {
+      const url = `https://openlibrary.org${element.key}.json`
+      const response = await axios.get(url)
+      let description = response.data.description
+    });
+    
+  } catch (error) {
+    log('ERROR: descriptionApiRequest function')
+    logErrors(error)
+  }
+}
+
+
+/* const bookList = document.getElementById('book-list')
 
 export const displayBooks = async (books) => {
   let html = ''
@@ -59,40 +89,9 @@ export const keyFunction = async (key) => {
           let arrayDescription = [bookDescription]
           log(arrayDescription)
         })
-
     })
   } catch (error) {
     log('keyFunction function Error')
     logErrors(error)
-  }
-}
-
-
-
-
-
-
-/* export const keyFunction = async (books) => {
-  try {
-    let keyValue = books.map((book) => { return get(book, 'key', 'Key Unknown')})
-    console.log(keyValue);
-
-
-    let bookDescription = keyValue.map( (singleValue) => {
-      const url = `https://openlibrary.org${singleValue}.json`
-      const response = axios.get(url)
-      response.then((result) => {
-        return result
-      })
-      
-    })
-    console.log(bookDescription);
-
-
-
-  } catch (error) {
-    console.log('keyFunction function Error');
-    console.log(error.name);
-    console.log(error.message);
   }
 } */
