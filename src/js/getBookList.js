@@ -2,22 +2,22 @@ import axios from "axios";
 import "@babel/runtime/regenerator";
 import { async } from "@babel/runtime/regenerator";
 import { get, isArray } from "lodash";
-import { displayBooks } from "./displayBook";
+import { displayBooks, keyFunction } from "./displayBook";
+import { log, logErrors } from "./utility";
 
 export const getBook = async (searchItem) => {
   try {
     const url = `https://openlibrary.org/subjects/${searchItem}.json`
     const response = await axios.get(url)
-    console.log(`getBook - Response Status: ${response.status}`);
+    log(`getBook - Response Status: ${response.status}`)
     let books = response.data.works
-    displayBooks(books)
     
+    displayBooks(books)
+    keyFunction(books)
   } catch (error) {
-    console.log('getBook Error');
-    console.error(`Error name: ${error.name}`);
-    console.log(`Error message: ${error.message}`);
-    console.log(`Error stack: ${error.stack}`);
+    log('ERROR: getBook function');
+    logErrors(error);
   }
 }
 
-getBook('fantasy')
+getBook('fantasy');
