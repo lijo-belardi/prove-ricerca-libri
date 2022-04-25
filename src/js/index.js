@@ -1,5 +1,5 @@
 import '../style/main.scss'; // connect scss to template.html
-import { getBooksByGenres } from './getBookList'
+import { getBooksByGenres } from './ApiRequests'
 import { check } from './displayBook';
 import { async } from '@babel/runtime/regenerator';
 import { log, logErrors } from './utility';
@@ -35,5 +35,3 @@ try {
         logErrors(error)
     }
 }) */
-
-

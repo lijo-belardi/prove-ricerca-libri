@@ -2,16 +2,15 @@ import axios from "axios";
 import "@babel/runtime/regenerator";
 import { async } from "@babel/runtime/regenerator";
 import { get, isArray, result } from "lodash";
-import { getBook } from "./getBookList";
-import { log, logErrors } from "./utility";
+import { getBook } from "./ApiRequests";
+import { log, logErrors, modal } from "./utility";
+import { getBookDescription } from "./getBookDescription";
 
 
 export const displayBook = async (book) => {
-
   try {
     let html = ''
     const bookList = document.getElementById('book-list')
-
     book.forEach(element => {
       html += `
           <div class="book-container" data-id = "">
@@ -24,18 +23,18 @@ export const displayBook = async (book) => {
               </div>
 
               <div class="book-description">
-                <h5>Description</h5>
-                <p></p>
               </div>
+              <button class="description-btn">Read Description</button>
           </div>`;
     });
     bookList.innerHTML = html
+    getBookDescription()
   } catch (error) {
     log('ERROR: displayBooks function')
     logErrors(error)
   }
-
 }
+
 
 /* const bookList = document.getElementById('book-list')
 
