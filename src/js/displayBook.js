@@ -5,35 +5,37 @@ import { get, isArray, result } from "lodash";
 import { getBook } from "./getBookList";
 import { log, logErrors } from "./utility";
 
-export const getbookElements = async (books) => {
-  try {
-    const singleBook = books.map((book) => {
-      let title = get(book, "title", "Title Unknown")
-      let key = get(book, 'key', 'Key Unknown')
-      let authors = get(book, 'authors', 'Authors Unknown')
-      return { title: title, key: key, authors: authors }
-    })
-    descriptionApiRequest(singleBook)
-  } catch (error) {
-    log('ERROR: bookElements function')
-    logErrors(error)
-  }
-}
 
-const descriptionApiRequest = async (singleBook) => {
+export const displayBook = async (book) => {
+
   try {
-    const getDescription = singleBook.forEach(async (element) => {
-      const url = `https://openlibrary.org${element.key}.json`
-      const response = await axios.get(url)
-      let description = response.data.description
+    let html = ''
+    const bookList = document.getElementById('book-list')
+
+    book.forEach(element => {
+      html += `
+          <div class="book-container" data-id = "">
+              <div class="book-title">
+                <h2>${element.title}</h2>
+              </div>
+
+              <div class="book-authors">
+                <h4>Authors: ${element.authors}</h4>
+              </div>
+
+              <div class="book-description">
+                <h5>Description</h5>
+                <p></p>
+              </div>
+          </div>`;
     });
-    
+    bookList.innerHTML = html
   } catch (error) {
-    log('ERROR: descriptionApiRequest function')
+    log('ERROR: displayBooks function')
     logErrors(error)
   }
-}
 
+}
 
 /* const bookList = document.getElementById('book-list')
 

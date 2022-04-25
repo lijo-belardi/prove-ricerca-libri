@@ -2,7 +2,7 @@ import axios from "axios";
 import "@babel/runtime/regenerator";
 import { async } from "@babel/runtime/regenerator";
 import { get, isArray } from "lodash";
-import { getbookElements } from "./displayBook";
+import { getbookElements} from "./getBookelements"
 import { log, logErrors } from "./utility";
 
 export const getBooksByGenres = async (searchItem) => {
