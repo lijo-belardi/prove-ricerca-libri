@@ -23,7 +23,7 @@ export const getBooksByGenres = async (searchItem) => {
 
 export const descriptionApiRequest = async (bookElements) => {
   try {
-    const getDescription = bookElements.forEach(async (element) => {
+    const getDescription = bookElements.map(async (element) => {
       const url = `https://openlibrary.org${element.key}.json`
       const response = await axios.get(url)
       const description = get(response.data, 'description', 'No description for this book')
