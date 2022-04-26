@@ -5,33 +5,21 @@ import { async } from '@babel/runtime/regenerator';
 import { log, logErrors } from './utility';
 
 const form = document.getElementById('form')
-const subject = document.getElementById('search-input')
-const errorElement = document.getElementById('error-message')
 
-try {
-    getBooksByGenres('fantasy')
-} catch (error) {
-    log('ERROR: generic try-catch')
-    logErrors(error)
-}
+form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    // set variables
+    const formErrorMessage = document.getElementById('error-message')
+    const subject = e.target.querySelector('#search-input')
+    const searchItem = subject.value.toLowerCase()
 
-
-
-/* form.addEventListener('submit', (e) => {
-    try {
-        let messages = []
-        if (subject.value === '' || subject.value == null) {
-            messages.push('Subject is required!')
-        }
-        if (messages.length > 0) {
-            e.preventDefault()
-            errorElement.innerText = messages.join(', ')
-        }
-        const input = e.target.querySelector('#search-input')
-        const searchItem = input.value.trim()
-        getBooksByGender(searchItem)
-    } catch (error) {
-        log('ERROR: event Listener')
-        logErrors(error)
+    // searchItem conditions
+    let messages = []
+    if (subject.value === '' || subject.value == null) {
+        messages.push('Subject is required!')
     }
-}) */
+    if (messages.length > 0) { formErrorMessage.innerText = messages.join(', ') }
+
+    //function invocation
+    getBooksByGenres(searchItem)
+})
