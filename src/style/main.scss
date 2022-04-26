@@ -8,6 +8,7 @@ html {
 
 body {
     background-color: rgba(128, 128, 128, 0.695);
+    font-size: 20px;
 }
 
 h1 {
@@ -27,11 +28,13 @@ form {
     margin-top: 10px;
     width: 15rem;
     height: 3rem;
+    font-size: 30px;
   }
-  .search-btn {
+  .search-btn, .refresh-button {
     margin-top: 2rem;
-    width: 5rem;
+    width: 10rem;
     height: 3rem;
+    font-size: 20px;
   }
 }
 
