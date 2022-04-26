@@ -1,3 +1,5 @@
+import {getBooksByGenres} from "./ApiRequests"
+
 // console.log function
 export const log = (arg) => { console.log(arg); }
 
@@ -19,4 +21,29 @@ export const modal = () => {
 
 export const logDescription = () => {
   log('Hello world!!')
+}
+
+// refresh function
+export const refreshFunction = (e) => {
+  e.preventDefault()
+  window.location.reload()
+}
+
+// submit function
+export const submitFunction = (e) => {
+  e.preventDefault()
+  // set variables
+  const formErrorMessage = document.getElementById('error-message')
+  const subject = e.target.querySelector('#search-input')
+  const searchItem = subject.value.toLowerCase()
+
+  // searchItem conditions
+  let messages = []
+  if (subject.value === '' || subject.value == null) {
+    messages.push('Subject is required!')
+  }
+  if (messages.length > 0) { formErrorMessage.innerText = messages.join(', ') }
+
+  //function invocation
+  getBooksByGenres(searchItem)
 }
