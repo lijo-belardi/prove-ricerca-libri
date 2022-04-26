@@ -7,7 +7,6 @@ import { log, logErrors, refreshFunction, submitFunction } from './utility';
 const form = document.getElementById('form')
 const refreshButton = document.getElementById('refresh-button')
 
-// submit
-form.addEventListener('submit', submitFunction)
-// Refresh button
-refreshButton.addEventListener('click', refreshFunction)
+
+form.addEventListener('submit', submitFunction) // submit
+refreshButton.addEventListener('click', refreshFunction) // Refresh button
