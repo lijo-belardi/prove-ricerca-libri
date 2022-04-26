@@ -5,6 +5,7 @@ import { async } from '@babel/runtime/regenerator';
 import { log, logErrors } from './utility';
 
 const form = document.getElementById('form')
+const refreshButton = document.getElementById('refresh-button')
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -22,4 +23,10 @@ form.addEventListener('submit', (e) => {
 
     //function invocation
     getBooksByGenres(searchItem)
+})
+
+// Refresh button
+refreshButton.addEventListener('click', (e) => {
+    e.preventDefault()
+    window.location.reload()
 })
