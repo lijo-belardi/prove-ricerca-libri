@@ -6,7 +6,7 @@ export const getBookDescription = (description) => {
     const descriptionSection = document.querySelector(".book-description")
     // modal function
     modal()
-    //addtoHtml
+    //add to Html
     let html = `
     <div class = "book-instruct">
         <h3>Description</h3>
