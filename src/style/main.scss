@@ -46,13 +46,12 @@ form {
   margin: 10px 50px;
 }
 
-.book-container {
+.book {
   margin-top: 10px;
   background-color: rgb(94, 49, 49);
   width: 500px;
 
-  .book-title, 
-  .book-authors {
+  &-title, &authors {
     margin-left: 20px;
   }
 }

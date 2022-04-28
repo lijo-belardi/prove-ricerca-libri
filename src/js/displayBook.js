@@ -13,7 +13,7 @@ export const displayBook = async (book) => {
     const bookList = document.getElementById('book-list')
     book.forEach(element => {
       html += `
-          <div class="book-container" data-id = "">
+          <div class="book" data-id = "">
               <div class="book-title">
                 <h2>${element.title}</h2>
               </div>
