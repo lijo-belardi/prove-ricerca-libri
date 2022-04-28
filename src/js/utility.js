@@ -15,13 +15,10 @@ export const modal = () => {
   const descriptionButton = document.querySelectorAll(".description-btn");
 
   descriptionButton.forEach((button) => {
-    button.addEventListener('click', logDescription)
-  })
+    button.addEventListener('click', logDescription)})
 }
 
-export const logDescription = () => {
-  log('Hello world!!')
-}
+export const logDescription = () => { log('Hello world!!')}
 
 // refresh function
 export const refreshFunction = (e) => {
@@ -42,7 +39,9 @@ export const submitFunction = (e) => {
   if (subject.value === '' || subject.value == null) {
     messages.push('Subject is required!')
   }
-  if (messages.length > 0) { formErrorMessage.innerText = messages.join(', ') }
+  if (messages.length > 0) { 
+    formErrorMessage.innerText = messages.join(', ') 
+  }
 
   //function invocation
   getBooksByGenres(searchItem)

@@ -6,7 +6,7 @@ import { log, logErrors } from "./utility";
 import { displayBook } from "./displayBook";
 import { descriptionApiRequest } from "./ApiRequests"
 
-export const getbookElements = async (books) => {
+export const getBookElements = async (books) => {
     try {
         const bookElements = books.map((book) => {
             let title = get(book, "title", "Title Unknown")

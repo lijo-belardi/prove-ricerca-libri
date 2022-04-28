@@ -2,7 +2,7 @@ import axios from "axios";
 import "@babel/runtime/regenerator";
 import { async } from "@babel/runtime/regenerator";
 import { get, isArray } from "lodash";
-import { getbookElements } from "./getBookelements"
+import { getBookElements } from "./getBookElements"
 import { log, logErrors } from "./utility";
 import { getBookDescription } from "./getBookDescription";
 
@@ -13,9 +13,9 @@ export const getBooksByGenres = async (searchItem) => {
     log(`getBooksByGenres - Response Status: ${response.status}`)
     let books = response.data.works
 
-    getbookElements(books)
+    getBookElements(books)
   } catch (error) {
-    log('ERROR: getBook function');
+    log('ERROR: getBooksByGenres function');
     log(`getBooksByGenres - Response Status: ${response.status}`)
     logErrors(error);
   }
