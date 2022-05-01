@@ -1,5 +1,7 @@
 import {getBooksByGenres} from "./ApiRequests"
 
+
+/* ------- Console shortcuts ------- */
 // console.log function
 export const log = (arg) => { console.log(arg); }
 
