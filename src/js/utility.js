@@ -13,15 +13,23 @@ export const logErrors = (error) => {
 }
 
 
+/* ------- Description's modal function ------- */
 export const modal = () => {
-  const descriptionButton = document.querySelectorAll(".description-btn");
+  const descriptionButton = document.querySelectorAll(".description-button");
 
   descriptionButton.forEach((button) => {
     button.addEventListener('click', logDescription)})
 }
 
-export const logDescription = () => { log('Hello world!!')}
+export const logDescription = () => { 
+  log('Hello world!!')
+  
+}
 
+
+
+
+/* ------- Other functions ------- */
 // refresh function
 export const refreshFunction = (e) => {
   e.preventDefault()

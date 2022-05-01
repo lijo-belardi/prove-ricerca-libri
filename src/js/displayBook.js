@@ -24,7 +24,7 @@ export const displayBook = async (book) => {
 
               <div class="book-description">
               </div>
-              <button class="description-btn">Read Description</button>
+              <button class="description-button">Read Description</button>
           </div>`;
     });
     bookList.innerHTML = html
