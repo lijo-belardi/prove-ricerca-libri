@@ -6,6 +6,7 @@ import { getBookElements } from "./getBookElements"
 import { log, logErrors } from "./utility";
 import { getBookDescription } from "./getBookDescription";
 
+// Request - get Book list
 export const getBooksByGenres = async (searchItem) => {
   try {
     const url = `https://openlibrary.org/subjects/${searchItem}.json`
@@ -21,6 +22,7 @@ export const getBooksByGenres = async (searchItem) => {
   }
 }
 
+// Request - get description
 export const descriptionApiRequest = async (bookElements) => {
   try {
     const getDescription = bookElements.map(async (element) => {
