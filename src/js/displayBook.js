@@ -13,7 +13,7 @@ export const displayBook = async (book) => {
     const bookList = document.getElementById('book-list')
     book.forEach(element => {
       html += `
-          <div class="book" data-id = "">
+          <div class="book" data-id = "${element.key}">
               <div class="book-title">
                 <h2>${element.title}</h2>
               </div>
@@ -36,49 +36,10 @@ export const displayBook = async (book) => {
 }
 
 
-/* const bookList = document.getElementById('book-list')
 
-export const displayBooks = async (books) => {
-  let html = ''
-  try {
-    books.map((book) => {
-      let title = get(book, "title", "Title Unknown")
-      let key = get(book, 'key', 'Key Unknown')
-      let authors = get(book, 'authors', 'Authors Unknown')
 
-      if (Array.isArray(authors)) {
-        if (authors.length <= 4) {
-          authors = authors.map((author) => {
-            return author.name;
-          }).join(", ");
-        } else {
-          authors = `
-          ${authors[0].name}, 
-          ${authors[1].name}, 
-          ${authors[2].name}, 
-          ${authors[3].name} and others`;
-        }
-      }
 
-      html += `
-        <div class="book-container" data-id = "${key}">
-            <div class="info-book">
-            <h2>${title}</h2>
-            <p>Authors: ${authors}</p>
-            </div>
-        </div>`;
-
-      bookList.innerHTML = html
-      keyFunction(key)
-    })
-
-  } catch (error) {
-    log('ERROR: displayBooks function')
-    logErrors(error)
-  }
-}
-
-export const keyFunction = async (key) => {
+/* export const keyFunction = async (key) => {
   try {
     let arrayKey = [key]
     arrayKey.forEach((singleWork) => {
@@ -95,4 +56,4 @@ export const keyFunction = async (key) => {
     log('keyFunction function Error')
     logErrors(error)
   }
-} */
+}  */
