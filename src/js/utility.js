@@ -18,11 +18,11 @@ export const logErrors = (error) => {
 /* ------- Description's modal function ------- */
 
 export const descriptionModal = (description) => {
-  log(description.value != null ? description.value : description)
+  const modalBody = document.querySelector('.modal-body')
+  let html = ''
+  html = `<p>${description.value != null ? description.value : description}</p>`;
+  modalBody.innerHTML = html
 }
-
-
-
 
 /* ------- Other functions ------- */
 // refresh function

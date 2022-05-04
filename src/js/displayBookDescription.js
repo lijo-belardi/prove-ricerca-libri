@@ -9,11 +9,14 @@ export const displayBookDescription = async () => {
     try {
         // take all description-buttons
         const descriptionButton = document.querySelectorAll(".description-button");
-        
+
         // addEventListener
-        descriptionButton.forEach((button  => {
-          button.addEventListener('click', (e) => {
-            descriptionRequest((e.target.parentElement).dataset.id)})}))
+        descriptionButton.forEach((button => {
+            button.addEventListener('click', (e) => {
+                let key = (e.target.parentElement).dataset.id
+                descriptionRequest(key)
+            })
+        }))
     } catch (error) {
         logErrors(error)
     }
