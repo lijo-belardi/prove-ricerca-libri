@@ -20,7 +20,6 @@ export const getBookElements = async (books) => {
             }
             return { title, key, authors }
         })
-        //descriptionApiRequest(bookElements)
         displayBook(bookElements)
     } catch (error) {
         log('ERROR: bookElements function')
