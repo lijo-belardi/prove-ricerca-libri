@@ -1,5 +1,7 @@
-import {getBooksByGenres} from "./ApiRequests"
+import { getBooksByGenres } from "./ApiRequests"
 
+// global variables
+const body = document.body
 
 /* ------- Console shortcuts ------- */
 // console.log function
@@ -18,12 +20,17 @@ export const modal = () => {
   const descriptionButton = document.querySelectorAll(".description-button");
 
   descriptionButton.forEach((button) => {
-    button.addEventListener('click', logDescription)})
+    button.addEventListener('click', modalCreateFunction)})
 }
 
-export const logDescription = () => { 
+export const modalCreateFunction = () => { 
   log('Hello world!!')
-  
+  let html;
+  const bookDescriptionClass = document.querySelectorAll(".book-description")
+
+
+  html = `<p>Bella</p>`;
+  bookDescriptionClass.innerHTML = html;
 }
 
 
@@ -38,19 +45,20 @@ export const refreshFunction = (e) => {
 
 // submit function
 export const submitFunction = (e) => {
-  e.preventDefault()
   // set variables
   const formErrorMessage = document.getElementById('error-message')
   const subject = e.target.querySelector('#search-input')
   const searchItem = subject.value.toLowerCase()
+
+  e.preventDefault()
 
   // searchItem conditions
   let messages = []
   if (subject.value === '' || subject.value == null) {
     messages.push('Subject is required!')
   }
-  if (messages.length > 0) { 
-    formErrorMessage.innerText = messages.join(', ') 
+  if (messages.length > 0) {
+    formErrorMessage.innerText = messages.join(', ')
   }
 
   //function invocation
