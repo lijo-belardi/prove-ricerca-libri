@@ -3,8 +3,9 @@ import "@babel/runtime/regenerator";
 import { async } from "@babel/runtime/regenerator";
 import { get, isArray } from "lodash";
 import { getBookElements } from "./getBookElements"
-import { log, logErrors } from "./utility";
-import { getBookDescription } from "./getBookDescription";
+import { displayBookDescription, modal} from "./displayBookDescription"
+import { log, logErrors, descriptionModal } from "./utility";
+
 
 // Request - get Book list
 export const getBooksByGenres = async (searchItem) => {
@@ -15,6 +16,7 @@ export const getBooksByGenres = async (searchItem) => {
     let books = response.data.works
 
     getBookElements(books)
+    displayBookDescription()
   } catch (error) {
     log('ERROR: getBooksByGenres function');
     log(`getBooksByGenres - Response Status: ${response.status}`)
@@ -22,17 +24,14 @@ export const getBooksByGenres = async (searchItem) => {
   }
 }
 
-// Request - get description
-export const descriptionApiRequest = async (bookElements) => {
+// Request - get Description
+export const descriptionRequest = async (key) => {
   try {
-    const getDescription = bookElements.map(async (element) => {
-      const url = `https://openlibrary.org${element.key}.json`
-      const response = await axios.get(url)
-      const description = get(response.data, 'description', 'No description for this book')
-      getBookDescription(description)
-    });
+    let url = `https://openlibrary.org${key}.json`;
+    const response = await axios.get(url);
+    const description = get(response.data, 'description', 'No description for this book.')
+    descriptionModal(description)
   } catch (error) {
-    log('ERROR: descriptionApiRequest function')
-    logErrors(error)
+      logErrors(error)
   }
 }

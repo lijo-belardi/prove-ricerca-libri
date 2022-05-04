@@ -16,21 +16,9 @@ export const logErrors = (error) => {
 
 
 /* ------- Description's modal function ------- */
-export const modal = () => {
-  const descriptionButton = document.querySelectorAll(".description-button");
 
-  descriptionButton.forEach((button) => {
-    button.addEventListener('click', modalCreateFunction)})
-}
-
-export const modalCreateFunction = () => { 
-  log('Hello world!!')
-  let html;
-  const bookDescriptionClass = document.querySelectorAll(".book-description")
-
-
-  html = `<p>Bella</p>`;
-  bookDescriptionClass.innerHTML = html;
+export const descriptionModal = () => {
+  log('modal')
 }
 
 
@@ -64,3 +52,11 @@ export const submitFunction = (e) => {
   //function invocation
   getBooksByGenres(searchItem)
 }
+
+
+
+/* Appunti
+
+ per ottenere la descrizione. 
+ ${description.value != null ? description.value : description}
+*/

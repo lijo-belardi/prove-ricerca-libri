@@ -4,7 +4,7 @@ import { async } from "@babel/runtime/regenerator";
 import { get, isArray, result } from "lodash";
 import { getBook } from "./ApiRequests";
 import { log, logErrors, modal } from "./utility";
-import { getBookDescription } from "./getBookDescription";
+
 
 
 export const displayBook = async (book) => {
@@ -16,19 +16,18 @@ export const displayBook = async (book) => {
           <div class="book" data-id = "${element.key}">
               <div class="book-title">
                 <h2>${element.title}</h2>
+                <h3>${element.key}</h3>
               </div>
 
               <div class="book-authors">
                 <h4>Authors: ${element.authors}</h4>
               </div>
 
-              <div class="book-description">
-              </div>
               <button class="description-button">Read Description</button>
           </div>`;
     });
     bookList.innerHTML = html
-    getBookDescription()
+
   } catch (error) {
     log('ERROR: displayBooks function')
     logErrors(error)
