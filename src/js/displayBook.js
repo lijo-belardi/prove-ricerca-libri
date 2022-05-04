@@ -1,10 +1,7 @@
 import axios from "axios";
 import "@babel/runtime/regenerator";
 import { async } from "@babel/runtime/regenerator";
-import { get, isArray, result } from "lodash";
-import { getBook } from "./ApiRequests";
-import { log, logErrors, modal } from "./utility";
-
+import { log, logErrors } from "./utility";
 
 
 export const displayBook = async (book) => {
@@ -45,7 +42,6 @@ export const displayBook = async (book) => {
                   </div>
                 </div>
               </div> <!-- Modal -->
-
           </div> <!-- Main div -->`;
     });
     bookList.innerHTML = html
@@ -55,26 +51,3 @@ export const displayBook = async (book) => {
     logErrors(error)
   }
 }
-
-
-
-
-
-/* export const keyFunction = async (key) => {
-  try {
-    let arrayKey = [key]
-    arrayKey.forEach((singleWork) => {
-      const url = `https://openlibrary.org${singleWork}.json`
-      const workResponse = axios.get(url)
-      workResponse
-        .then((result) => {
-          let bookDescription = result.data.description
-          let arrayDescription = [bookDescription]
-          log(arrayDescription)
-        })
-    })
-  } catch (error) {
-    log('keyFunction function Error')
-    logErrors(error)
-  }
-}  */

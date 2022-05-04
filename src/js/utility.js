@@ -52,11 +52,3 @@ export const submitFunction = (e) => {
   //function invocation
   getBooksByGenres(searchItem)
 }
-
-
-
-/* Appunti
-
- per ottenere la descrizione. 
- ${description.value != null ? description.value : description}
-*/
