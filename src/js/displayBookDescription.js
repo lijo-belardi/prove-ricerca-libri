@@ -15,7 +15,7 @@ export const displayBookDescription = async () => {
           button.addEventListener('click', (e) => {
             let key = (e.target.parentElement).dataset.id
             
-            //descriptionRequest(key)
+            descriptionRequest(key)
           })
         })) // addEventListener - end
 

@@ -17,8 +17,8 @@ export const logErrors = (error) => {
 
 /* ------- Description's modal function ------- */
 
-export const descriptionModal = () => {
-  log('modal')
+export const descriptionModal = (description) => {
+  log(description.value != null ? description.value : description)
 }
 
 
