@@ -16,6 +16,8 @@ export const displayBook = async (book) => {
                 <h3>${element.key}</h3>
               </div>
 
+              <div class="cover">
+              </div>
               <div class="book-authors">
                 <h4>Authors: ${element.authors}</h4>
               </div>

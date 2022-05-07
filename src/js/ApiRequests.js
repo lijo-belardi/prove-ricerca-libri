@@ -16,6 +16,7 @@ export const getBooksByGenres = async (searchItem) => {
     let books = response.data.works
 
     getBookElements(books)
+    getCovers(books)
     displayBookDescription()
   } catch (error) {
     log('ERROR: getBooksByGenres function');
@@ -34,4 +35,20 @@ export const descriptionRequest = async (key) => {
   } catch (error) {
       logErrors(error)
   }
+}
+
+
+export const getCovers = (books) => {
+  books.forEach(book => {getImg(book.cover_edition_key)});
+  };
+
+
+export const getImg = (coverKey) => {
+  const imgs = document.querySelectorAll('.cover')
+  let html = ''
+  imgs.forEach(img => {
+    html = `<img src="https://covers.openlibrary.org/b/olid/${coverKey}-M.jpg">`
+    img.innerHTML = html
+  });
+  
 }
